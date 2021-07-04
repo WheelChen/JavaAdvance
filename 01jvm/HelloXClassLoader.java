@@ -1,4 +1,3 @@
-package me.kelvinchen.jvm;
 
 import java.io.*;
 import java.lang.reflect.Method;
