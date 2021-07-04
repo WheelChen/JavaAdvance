@@ -1,3 +1,4 @@
+package week01;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -27,7 +28,7 @@ public class HelloXClassLoader extends ClassLoader {
     protected Class<?> findClass(String name) throws ClassNotFoundException {
 
         try {
-            File file = new File(getClass().getClassLoader().getResource("Hello.xlass").getPath());
+            File file = new File(getClass().getClassLoader().getResource("week01/Hello.xlass").getPath());
             byte[] bytes = Files.readAllBytes(file.toPath());
             bytes = decode(bytes);
             return defineClass(name, bytes, 0, bytes.length);
