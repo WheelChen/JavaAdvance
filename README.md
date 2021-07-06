@@ -4,3 +4,7 @@
 
 - 作业2 HelloXClassLoader
 - 作业3 01jvm/project3.png
+
+## Week-2
+
+- 作业3 GC总结.md

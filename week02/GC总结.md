@@ -63,7 +63,7 @@ Heap
   class space    used 291K, capacity 386K, committed 512K, reserved 1048576K
 ```
 
-![pic/Untitled.png](pic/Untitled.png)
+![pic/Untitled.png](pic/SerialGC.png)
 
 ## 并行GC
 
@@ -97,7 +97,7 @@ Heap
   class space    used 291K, capacity 386K, committed 512K, reserved 1048576K
 ```
 
-![pic/Untitled%201.png](pic/Untitled%201.png)
+![pic/Untitled%201.png](pic/ParallelGC.png)
 
 ## CMS GC
 
@@ -136,7 +136,7 @@ Heap
   class space    used 291K, capacity 386K, committed 512K, reserved 1048576K
 ```
 
-![pic/Untitled%202.png](pic/Untitled%202.png)
+![pic/Untitled%202.png](pic/CMS.png)
 
 # G1 GC
 
@@ -175,7 +175,7 @@ java -XX:+PrintGC -XX:+PrintGCDateStamps -Xmx1g -Xms1g -XX:+UseG1GC GCLogAnalysi
 2021-07-05T19:47:48.730+0800: [GC concurrent-cleanup-end, 0.0000280 secs]
 ```
 
-![pic/Untitled%203.png](pic/Untitled%203.png)
+![pic/Untitled%203.png](pic/G1.png)
 
 ---
 
