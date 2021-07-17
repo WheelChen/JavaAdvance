@@ -1,4 +1,4 @@
 ## Week-2
 
-- 作业3 GC总结.md
-- 作业6 HttpRequestDemo
+-[x] 作业3 GC总结.md
+-[x] 作业6 HttpRequestDemo
