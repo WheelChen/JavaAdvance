@@ -22,3 +22,4 @@
     - 2.6 condition
     - 2.7 wait & notify
     - 2.8 BlockingQueue
+- [x] Project 6 梳理多线程和并发相关知识 (多线程.png)
