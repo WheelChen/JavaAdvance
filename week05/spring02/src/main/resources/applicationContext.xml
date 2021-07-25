@@ -8,11 +8,13 @@
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
     
-    <bean id="Worker-1"
-          class="bean.config.Person">
-        <property name="name" value="打工仔" />
-        <property name="age" value="18" />
+    <bean id="person1"
+          class="bean.config.Person1">
+        <property name="name" value="1" />
+        <property name="age" value="1" />
     </bean>
+
+    <context:component-scan base-package="bean.annotations"/>
     
     
 </beans>
