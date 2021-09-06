@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.multidb.dao.PdSpuSnapshotMapper">
+  <resultMap id="BaseResultMap" type="com.example.multidb.entity.PdSpuSnapshot">
+    <!--@mbg.generated-->
+    <!--@Table pd_spu_snapshot-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="spu_snap_code" jdbcType="VARCHAR" property="spuSnapCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, spu_id, `name`, picture_url, description, spu_snap_code, create_time, update_time, 
+    is_delete
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from pd_spu_snapshot
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from pd_spu_snapshot
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.multidb.entity.PdSpuSnapshot">
+    <!--@mbg.generated-->
+    insert into pd_spu_snapshot (id, spu_id, `name`, 
+      picture_url, description, spu_snap_code, 
+      create_time, update_time, is_delete
+      )
+    values (#{id,jdbcType=INTEGER}, #{spuId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{pictureUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{spuSnapCode,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.multidb.entity.PdSpuSnapshot">
+    <!--@mbg.generated-->
+    insert into pd_spu_snapshot
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="pictureUrl != null">
+        picture_url,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="spuSnapCode != null">
+        spu_snap_code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null">
+        #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="spuSnapCode != null">
+        #{spuSnapCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.multidb.entity.PdSpuSnapshot">
+    <!--@mbg.generated-->
+    update pd_spu_snapshot
+    <set>
+      <if test="spuId != null">
+        spu_id = #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null">
+        picture_url = #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="spuSnapCode != null">
+        spu_snap_code = #{spuSnapCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.multidb.entity.PdSpuSnapshot">
+    <!--@mbg.generated-->
+    update pd_spu_snapshot
+    set spu_id = #{spuId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      picture_url = #{pictureUrl,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      spu_snap_code = #{spuSnapCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
