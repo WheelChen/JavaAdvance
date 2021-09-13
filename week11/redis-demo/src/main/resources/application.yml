@@ -1,1 +1,6 @@
-por
+server:
+  port: 8080
+spring:
+  redis:
+    port: 6379
+    password: 123456
