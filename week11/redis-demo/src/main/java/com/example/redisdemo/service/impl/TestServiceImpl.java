@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Kelvin Chen
  * @date 2021-09-12 15:55:39
@@ -40,9 +42,18 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public void threadSafeTest() {
-        for (int i = 0; i < 100; i++) {
-            a = a + 1;
+        Boolean lock = restTemplate.opsForValue().setIfAbsent("lock", 1, 1, TimeUnit.SECONDS);
+        if (!lock) {
+            return;
         }
-        System.out.println("Value is " + a.toString());
+        try {
+            for (int i = 0; i < 1000; i++) {
+                a = a + 1;
+            }
+            System.out.println("Value is " + a.toString());
+        } finally {
+            restTemplate.delete("lock");
+        }
+
     }
 }

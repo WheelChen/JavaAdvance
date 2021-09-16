@@ -21,6 +21,13 @@ class RedisDemoApplicationTests {
                 () -> System.out.println(testService.getFromDB()));
     }
 
+    @Test
+    void threadSafeTest() {
+        new ConcurrentTest().begin(10 ,
+                () -> testService.threadSafeTest(),
+                () -> System.out.println(testService.getFromDB()));
+    }
+
 
 
 }
