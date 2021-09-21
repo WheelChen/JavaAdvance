@@ -1,10 +1,11 @@
 package com.example.redisdemo.controller;
 
+import com.example.redisdemo.entity.Order;
+import com.example.redisdemo.redis.mq.RedisOrderMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 
 /**
@@ -13,13 +14,15 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 public class TestController {
-    static Integer a = 0;
 
+    @Autowired
+    private RedisOrderMessagePublisher redisOrderMessagePublisher;
 
-    @GetMapping("/test")
-    public String test() {
-        a++;
-        System.out.println("get Lock " + a);
-        return a.toString();
+    @GetMapping("/createOrder/{id}")
+    public Boolean test(@PathVariable("id") Long id) {
+        Order order = new Order();
+        order.setOrderId(id);
+        redisOrderMessagePublisher.publish(order);
+        return true;
     }
 }

@@ -11,10 +11,21 @@ public interface TestService {
     /**
      * 线程不安全测试
      */
-    void threadUnSafeTest();
+    void threadUnSafeAdd();
+
 
     /**
-     * 线程安全测试
+     * 创建秒杀活动库存缓存
+     *
+     * @param activityId 秒杀活动id
      */
-    void threadSafeTest();
+    void createSeckillStock(Long activityId, Integer stockNum);
+
+    /**
+     * 创建秒杀订单
+     *
+     * @param activityId
+     * @return
+     */
+    Boolean generateSeckillOrder(Long activityId);
 }
